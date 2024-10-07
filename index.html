@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <script>let valor1 = " "; let tipo; let valor2 = " ";</script>
+<style>
+        .button {
+            border: none;
+            color: rgb(230, 230, 230);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+        .button1 {background-color: #04AA6D;}
+        .button2 {background-color: #008CBA;}
+        .button3 {background-color: #961349;}
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <h1>Calculadora</h1>
+    <div class="titulo"></div>
+    <title>Calculadora</title>
+    <div class="calculator">
+        <p class ="input" id="demo"></p>
+        <div class="buttons">
+          <div class="operators">
+            <button value = "+" onClick=elemento(this.value) class="button button2">+</button>
+            <button value = "-" onClick=elemento(this.value) class="button button2">-</button>
+            <button value = "x" onClick=elemento(this.value) class="button button2">x</button>
+            <button value = "÷" onClick=elemento(this.value) class="button button2">÷</button>
+          </div>
+          <div class="valores">
+            <div class="numeros">   
+                <button value = 7 onClick=conta(this.value) class="button button1">7</button>
+                <button value = 8 onClick=conta(this.value) class="button button1">8</button>
+                <button value = 9 onClick=conta(this.value) class="button button1">9</button>
+            </div>
+            <div class="numeros"> 
+                <button value = 4 onClick=conta(this.value) class="button button1">4</button>
+                <button value = 5 onClick=conta(this.value) class="button button1">5</button>
+                <button value = 6 onClick=conta(this.value) class="button button1">6</button>
+            </div>
+                <button value = 1 onClick=conta(this.value) class="button button1">1</button>
+                <button value = 2 onClick=conta(this.value) class="button button1">2</button>
+                <button value = 3 onClick=conta(this.value) class="button button1">3</button>
+            <div class="outros"> 
+                <button value = 0 onClick=conta(this.value) class="button button1">0</button>
+                <button onClick=limpar() class="button button2">Limpar</button>
+                <button onClick=resultado() class="button button3">Resultado</button>
+            </div>
+          </div>
+          <script>
+                function conta(valor){
+                        if(tipo == "+" || tipo == "-" || tipo == "x" || tipo == "÷"){
+                            valor2 = valor2 + `${valor}`
+                            document.getElementById("demo").innerHTML = valor2;
+                            valor2 = Number(valor2)
+                        }else{
+                            valor1 = valor1 +`${valor}` 
+                            document.getElementById("demo").innerHTML = valor1;
+                            valor1 = Number(valor1)}
+                    }
+                
+                function elemento(valor){
+                        document.getElementById("demo").innerHTML = valor;
+                        
+                        tipo = valor
+                    } 
+
+            function resultado(){
+                let valortotal;
+                switch(tipo){
+                    case "+":
+                        valortotal = valor1 + valor2
+                        document.getElementById("demo").innerHTML = valortotal;
+                        break;
+                    case "-":
+                        valortotal = valor1 - valor2
+                        document.getElementById("demo").innerHTML = valortotal;
+                        break;
+                    case "x":
+                        valortotal = valor2 * valor1
+                        document.getElementById("demo").innerHTML = valortotal;
+                        break;
+                    case "÷":
+                        valortotal = valor1 / valor2 
+                        document.getElementById("demo").innerHTML = valortotal;
+                        break;
+                }
+            } 
+
+            function limpar(){
+                valor2 = " "
+                valor1 = " "
+                tipo = " "
+                document.getElementById("demo").innerHTML = valor1;
+            } 
+        </script>
+        </div>
+      </div>
+</head>
+<body>
+
+
+
+</body>
+</html>
